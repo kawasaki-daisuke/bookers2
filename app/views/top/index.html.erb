@@ -1,0 +1,15 @@
+<% if flash[:notice] %>
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+
+	<section class="main">
+		<h1>welcome to Bookers</h1>
+		<%= link_to "Log in", "/users/sign_in" %>
+		<%= link_to "Sign Up", "/users/sign_up" %>
+	</section>
+<div>
+	  <p>CopyRight Infratop.inc</p>
+	</div>

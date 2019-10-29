@@ -1,0 +1,15 @@
+<% if flash[:notice] %>
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+<h1>Book detail</h1>
+<p><%=@book.title %></p>
+
+<%= link_to @user.name, user_path(@user.id) %>
+<p><%=@book.body %></p>
+<% if current_user.id == @book.user_id %>
+<%= link_to "Edit", edit_book_path(@book.id) %>
+<%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+<% end %>
+<%= render 'books/book', book:@book_new, user: @user %>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+    <section class="title1">
+        <h4>Bookers</h4>
+    </section>
+        <nav>
+          <!-- if ログインしていたら -->
+          <!-- ここにログイン時の表示させたい内容 -->
+          <!-- else = ログインしてなかったら -->
+          <% if user_signed_in?   %>
+            <ul class="title2">
+              <li class="list">
+                <%=link_to "Home", user_path(current_user.id) %>
+              </li>
+              <li class="title3">
+                <%= link_to "Users", "/users" %>
+              </li>
+              <li class="title4">
+                <%= link_to "Books", "/books" %>
+              </li>
+              <li class="title5">
+                <%= link_to "logout", destroy_user_session_path, method: :delete %>
+              </li>
+
+            </ul>
+          <% else %>
+            <ul class="title2">
+              <li class="list">
+                <%=link_to "Home", "/" %>
+              </li>
+              <li class="title3">
+                <%= link_to "About", "/home/about" %>
+              </li>
+              <li class="title4">
+              <%= link_to "sign up", "/users/sign_up" %>
+              </li>
+              <li class="title5">
+                <%= link_to "login", "/users/sign_in" %>
+              </li>
+            </ul>
+          <% end %>
+        </nav>
+        <!-- end -->
+    </header>
+    <%= yield %>
+  </body>
+</html>
