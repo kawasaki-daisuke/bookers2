@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def show
     @book = Book.new
     @user = User.find(params[:id])
-      flash[:notice] = "Signed in successfully."
   end
 
   def new

@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="navbar navbar-inverse">
     <section class="title1">
         <h4>Bookers</h4>
     </section>
@@ -20,7 +20,7 @@
           <!-- ここにログイン時の表示させたい内容 -->
           <!-- else = ログインしてなかったら -->
           <% if user_signed_in?   %>
-            <ul class="title2">
+            <ul class="nav navbar-nav navbar-right">
               <li class="list">
                 <%=link_to "Home", user_path(current_user.id) %>
               </li>
@@ -36,7 +36,7 @@
 
             </ul>
           <% else %>
-            <ul class="title2">
+            <ul class="nav navbar-nav navbar-right">
               <li class="list">
                 <%=link_to "Home", "/" %>
               </li>
@@ -55,5 +55,18 @@
         <!-- end -->
     </header>
     <%= yield %>
+    <footer>
+      <div class="container">
+        
+        <div class="row">
+          
+          <div class="col-xs-3 col-xs-offset-9">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+          
+        </div>
+        
+      </div>
+    </footer>
   </body>
 </html>
